@@ -74,6 +74,28 @@ types:
         platform: hyperledger-fabric
 ```
 
+## Run the crawler
+
+```
+python __main__.py >> /tmp/github-crawler.log 2>&1
+```
+
+You could also run it as a cronjob in the background. Just edit your cronfile.
+
+```
+crontab -e
+```
+
+Add this line to crawl it at noon every day.
+
+```
+00 12 * * * /usr/bin/python2.7 /home/github-crawler/crawler/__main__.py >> /tmp/github-crawler.log 2>&1
+```
+
 ## Userful links
 [https://developer.github.com/v3/rate_limit/](https://developer.github.com/v3/rate_limit/)
 [help.github.com/articles/searching-code/](help.github.com/articles/searching-code/)
+
+## ToDo
+- include logging
+- package to deb

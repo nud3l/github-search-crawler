@@ -50,7 +50,7 @@ class Crawler:
         # order_state 0 = default ordering (best match according to "score")
         # order_state 1 = last indexed
         # order_state 2 = first indexed
-        order_state = 0
+        order_state = 1
 
         # GitHub only provides 1000 items per request
         while item_count < total_count:
@@ -123,12 +123,11 @@ class Crawler:
                     current_item = 0
                     next_item = 1
 
-                    order_state = 0
+                    order_state = 1
             # jump to the next search area until we are at the end
             elif (next_item + 1) < len(self.size_range):
                 current_item += 1
                 next_item += 1
-
 
             timeout = True if (start_time < (int(time() - (60 * 60 * 8)))) else False
 
